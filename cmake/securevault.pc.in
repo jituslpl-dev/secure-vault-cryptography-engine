@@ -1,0 +1,14 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: SecureVault
+Description: High-throughput secure file encryption engine with custom SHA-256, AES-256, time-locking
+Version: @PROJECT_VERSION@
+
+Libs: -L${libdir} -lsecurevault_core
+Cflags: -I${includedir}/securevault
+
+
+

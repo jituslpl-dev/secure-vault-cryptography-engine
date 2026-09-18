@@ -1,0 +1,53 @@
+{
+  "name": "secure-vault",
+  "version": "1.0.0",
+  "description": "Educational native cryptography engine with custom SHA-256, AES-256-CTR, streaming, and Node-API bindings",
+  "main": "lib/index.js",
+  "bin": {
+    "securevault": "bin/cli.js"
+  },
+  "scripts": {
+    "rebuild": "node-gyp rebuild",
+    "test": "node test/test.js",
+    "demo": "node examples/example.js",
+    "benchmark": "cmake -B build -DSECUREVAULT_BUILD_BENCHMARKS=ON && cmake --build build -j && ./build/securevault_bench",
+    "format": "find src -name '*.cpp' -o -name '*.h' | xargs clang-format -i",
+    "format:check": "find src -name '*.cpp' -o -name '*.h' | xargs clang-format --dry-run --Werror",
+    "lint": "cppcheck --enable=warning,style,performance,portability --error-exitcode=1 --suppress=missingIncludeSystem --std=c++14 src/",
+    "docs": "doxygen Doxyfile"
+  },
+  "keywords": [
+    "encryption",
+    "sha-256",
+    "aes-256",
+    "n-api",
+    "time-lock",
+    "streaming",
+    "zero-copy",
+    "cryptography",
+    "security",
+    "native-addon"
+  ],
+  "author": "jituslpl-dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jituslpl-dev/secure-vault-cryptography-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jituslpl-dev/secure-vault-cryptography-engine/issues"
+  },
+  "homepage": "https://github.com/jituslpl-dev/secure-vault-cryptography-engine#readme",
+  "gypfile": true,
+  "dependencies": {
+    "node-addon-api": "^7.0.0"
+  },
+  "devDependencies": {
+    "node-gyp": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+
+

@@ -1,0 +1,59 @@
+# SecureVault — clang-tidy configuration
+# Static analysis checks for C++ code quality and safety
+
+---
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-pro-type-cstyle-cast,
+  cppcoreguidelines-pro-type-static-cast-downcast,
+  cppcoreguidelines-slicing,
+  google-build-explicit-make-pair,
+  google-default-arguments,
+  google-explicit-constructor,
+  google-readability-braces-around-statements,
+  google-readability-casting,
+  google-readability-function-size,
+  google-readability-namespace-comments,
+  google-runtime-int,
+  misc-*,
+  modernize-*,
+  performance-*,
+  readability-*,
+  -bugprone-narrowing-conversions,
+  -cert-err58-cpp,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-avoid-non-const-global-variables,
+  -google-readability-todo,
+  -modernize-use-trailing-return-type,
+  -readability-magic-numbers,
+  -readability-identifier-length,
+  -readability-function-cognitive-complexity,
+  -readability-else-after-return
+
+WarningsAsErrors: ''
+HeaderFilterRegex: 'src/.*\.h$'
+FormatStyle: file
+CheckOptions:
+  - key:   readability-identifier-naming.NamespaceCase
+    value: lower_case
+  - key:   readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key:   readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key:   readability-identifier-naming.VariableCase
+    value: camelBack
+  - key:   readability-identifier-naming.PrivateMemberSuffix
+    value: '_'
+  - key:   readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
+  - key:   readability-identifier-naming.ConstantPrefix
+    value: 'k'
+  - key:   google-readability-function-size.StatementThreshold
+    value: '800'
+  - key:   google-readability-braces-around-statements.ShortStatementOnSameLine
+    value: 'false'
+
+
+

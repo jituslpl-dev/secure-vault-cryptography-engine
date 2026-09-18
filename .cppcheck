@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck>
+        <platform>Unspecified</platform>
+        <standards>
+            <standard>posix</standard>
+        </standards>
+        <addons>
+            <addon>misc</addon>
+        </addons>
+        <check-headers>true</check-headers>
+        <check-unused-functions>true</check-unused-functions>
+        <suppress>missingIncludeSystem</suppress>
+        <suppress>unusedFunction:src/addon.cpp</suppress>
+    </cppcheck>
+    <check-level>
+        <level>warning,style,performance,portability</level>
+    </check-level>
+    <check-config>
+        <enable>warning,style,performance,portability</enable>
+        <inconclusive>true</inconclusive>
+        <force>true</force>
+        <std>c++14</std>
+        <includes>src</includes>
+    </check-config>
+</results>
+
+
+
