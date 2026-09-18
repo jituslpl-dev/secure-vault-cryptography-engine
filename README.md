@@ -1,6 +1,6 @@
 # SecureVault — Educational Cryptography Engine
 
-**High-throughput secure file encryption engine with custom SHA-256, AES-256-CTR, time-locking, and zero-copy N-API bindings.**
+**An interview-focused C++/Node.js study of SHA-256, AES-256-CTR, streaming, native bindings, and cryptographic design tradeoffs.**
 
 [![CI](https://github.com/jituslpl-dev/secure-vault-cryptography-engine/actions/workflows/demo-tests.yml/badge.svg)](https://github.com/jituslpl-dev/secure-vault-cryptography-engine/actions/workflows/demo-tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -17,7 +17,7 @@
 - [Build Instructions](#build-instructions)
 - [Installation](#installation)
 - [Usage Examples](#usage-examples)
-- [Performance Benchmarks](#performance-benchmarks)
+- [Performance Benchmark Harness](#performance-benchmark-harness)
 - [Security Considerations](#security-considerations)
 - [Roadmap](#roadmap)
 - [API Documentation](#api-documentation)
@@ -53,7 +53,7 @@ proof-of-work key wrapping, chunk-based streaming, and N-API bindings.
 |---------|-------------|
 | **Custom SHA-256** | Bitwise C++ implementation, 64 rounds, verified against NIST FIPS 180-4 |
 | **AES-256-CTR** | Full Rijndael with 14-round key expansion, S-Box, MixColumns, Galois field multiplication |
-| **Tamper-evident integrity** | SHA-256 digest embedded in payload; decryption fails if data is modified |
+| **Integrity-check experiment** | Embedded plaintext SHA-256 detects ordinary corruption but is not an authentication tag |
 | **Time-lock demonstration** | Proof-of-work key wrapping plus a caller-supplied timestamp check; not a trusted time authority |
 | **Chunk-based streaming** | 64KB chunks with rolling SHA-256 hash for large-file processing |
 | **Zero-copy N-API** | Direct buffer access between JavaScript and C++ with no serialization overhead |
@@ -254,10 +254,12 @@ cmake --build build-fuzz -j
 
 ## Installation
 
-### As a Node.js Module
+### As a Node.js Module (from source)
 
 ```bash
-npm install secure-vault
+git clone https://github.com/jituslpl-dev/secure-vault-cryptography-engine.git
+cd secure-vault-cryptography-engine
+npm install
 ```
 
 ```javascript
@@ -500,4 +502,3 @@ MIT License — see [LICENSE](LICENSE) for details.
 - AES per [NIST SP 800-38A](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf)
 - S-Box and Rijndael field operations per [FIPS 197](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf)
 - N-API per [Node.js N-API documentation](https://nodejs.org/api/n-api.html)
-
